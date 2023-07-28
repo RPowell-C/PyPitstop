@@ -1,0 +1,29 @@
+{
+	"hards" : 
+	{
+		"tb" : 68,
+		"pt" : 0,
+		"ptM" : 0.05,
+		"tiredeg" : 6,
+		"pf" : 1,
+		"fuel" : 75
+	},
+	"mediums" :
+	{
+		"tb" : 67,
+		"pt" : 0,
+		"ptM" : 0.10,
+		"tiredeg" : 8,
+		"pf" : 1,
+		"fuel" : 75
+	},
+	"softs" :
+	{
+		"tb" : 88,
+		"pt" : 0,
+		"ptM" : 0.75,
+		"tiredeg" : 12,
+		"pf" : 1,
+		"fuel" : 75
+	}
+}
