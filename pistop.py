@@ -75,6 +75,7 @@ def findstrategy(pitlapH, pitlapM, pitlapS, lmax, hards, mediums, softs):
                         tiretwotime += lingo[shit]
         strattime = tireonetime + 20 + tiretwotime
         print("total race time: " + str(strattime))
+        print("two stop time: " + str(strattime /60))
         print("-------------------------")
         tireonetime = 0
         tiretwotime = 0
@@ -106,6 +107,7 @@ def findstrategy(pitlapH, pitlapM, pitlapS, lmax, hards, mediums, softs):
                         tirethreetime += lingo[shit]
         threestoptime = tireonetime + 20 + tiretwotime + 20 + tirethreetime
         print("the total race time for three stop is: " + str(threestoptime))
+        print("adjusted time is: " + str(threestoptime /60))
         threestoptime = 0
         tireonetime = 0
         tiretwotime = 0
@@ -119,21 +121,17 @@ def findstrategy(pitlapH, pitlapM, pitlapS, lmax, hards, mediums, softs):
 
 #tb is going to remain the same
 def crunchdata(totaltime, lap, lmax, tirelife, tb, pt, ptM, tiredeg, pf, fuel):
+    lap = 0
+    pitlap = 0
     while lap < lmax:
         timetillpit = 0
-        pitlap = 0
         time = tb + pt
         totaltime = totaltime + time
         pt = pt + ptM
         fuel = fuel - pf
-        lap += 1
         tirelife = tirelife - tiredeg
-        if tirelife <= 25:
-            pitlap = lap
-            timetillpit = totaltime
-            return totaltime, pitlap, timetillpit
-            break
-        else:
+        if tirelife >= 20:
+            pitlap += 1 
             totaltime = totaltime + time
             #print the data
             print(" ")
@@ -144,6 +142,7 @@ def crunchdata(totaltime, lap, lmax, tirelife, tb, pt, ptM, tiredeg, pf, fuel):
             print("fuel: " + str(fuel))
             print("total time: " + str(totaltime))
             print("adjusted total time: " + str(totaltime / 60))
+        lap += 1 
     return totaltime, pitlap, timetillpit
 
 
@@ -174,5 +173,5 @@ print("you should pit on lap: " + str(pitlapM))
 print("softs total time: " + str(softs))
 print("you should pit on lap: " + str(pitlapS))
 print("=========================================")
-print("finding all combonations")
+print("finding all combinations")
 onestop, twostop = findstrategy(pitlapH, pitlapM, pitlapS, lmax, hards, mediums, softs)
