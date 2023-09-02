@@ -9,8 +9,6 @@ from itertools import combinations
 # tb is the base time, Tl is the tire wear penalty times lap, and F(lmax - l) is the fuel multiplied by max laps minus the current lap
 
 
-
-
 lmax = int(input("laps: "))
 tirelife = 100
 totaltime = 0
